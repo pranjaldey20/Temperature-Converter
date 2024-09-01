@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature Converter</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+
+    .gradient-shadow {
+      position: relative;
+    }
+    .gradient-shadow::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, rgba(255, 0, 0, 0.4), rgba(0, 0, 255, 0.4));
+      z-index: -1;
+      filter: blur(8px);
+      border-radius: inherit; 
+    }
+  </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full container-bg gradient-shadow">
+        <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Temperature Converter</h1>
+        <div class="space-y-4">
+            <input type="number" id="temperature" placeholder="Enter temperature" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <div class="flex space-x-4">
+                <select id="from-unit" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="Celsius">Celsius</option>
+                    <option value="Fahrenheit">Fahrenheit</option>
+                    <option value="Kelvin">Kelvin</option>
+                </select>
+                <select id="to-unit" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="Celsius">Celsius</option>
+                    <option value="Fahrenheit">Fahrenheit</option>
+                    <option value="Kelvin">Kelvin</option>
+                </select>
+            </div>
+            <button onclick="convertTemperature()" class="w-full py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-md hover:from-blue-600 hover:to-purple-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Convert</button>
+            <div id="result" class="text-lg font-medium text-center text-gray-700 mt-4"></div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
